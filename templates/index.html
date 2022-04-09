@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Spam SMS Classification</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link href="{{ url_for('static', filename='images/icons/favicon.ico') }}" rel="icon">
+<!--===============================================================================================-->
+	<link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<!--===============================================================================================-->
+    <link href="{{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet">
+<!--===============================================================================================-->
+	<link href="{{ url_for('static', filename='vendor/animate/animate.css') }}" rel="stylesheet">
+<!--===============================================================================================-->	
+	<link href="{{ url_for('static', filename='vendor/css-hamburgers/hamburgers.min.css') }}" rel="stylesheet">
+<!--===============================================================================================-->
+	<link href="{{ url_for('static', filename='vendor/select2/select2.min.css') }}" rel="stylesheet">
+<!--===============================================================================================-->
+	<link href="{{ url_for('static', filename='css/util.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="{{url_for('static', filename='images/img-01.png')}}" alt="IMG">
+				</div>
+
+				<form action = "/predict" method="post" class="login100-form validate-form">
+					<span class="login100-form-title">
+						Spam SMS Classification
+					</span>
+                   	<br>
+					<div class="wrap-input100 validate-input">
+						<label>Enter Your SMS Content:</label>
+						<input type="text" class="form-control" name="sms" id="sms" required>
+
+                      
+					</div>
+					<br>
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Spam/Ham
+						</button>
+					</div>
+
+				<br>
+				<br>
+				<div >
+
+          {% if "Spam" in status %}
+                <p style="color:darkred; font-size: 30px;">{{ status }}</p>
+            {%else%}
+                <p style="color:darkgreen; font-size: 30px;">{{ status }}</p>
+                {%endif%}
+        
+           </div>
+				<br>
+				<br>	
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+<!--===============================================================================================-->	
+	<script src="{{url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js')}}" ></script>
+<!--===============================================================================================-->
+	<script src="{{url_for('static', filename='vendor/bootstrap/js/popper.js')}}" ></script>
+	<script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js')}}" ></script>
+<!--===============================================================================================-->
+	<script src="{{url_for('static', filename='vendor/select2/select2.min.js')}}" ></script>
+<!--===============================================================================================-->
+	<script src="{{url_for('static', filename='vendor/tilt/tilt.jquery.min.js')}}" ></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="{{url_for('static', filename='js/main.js')}}" ></script>
+
+</body>
+</html>
